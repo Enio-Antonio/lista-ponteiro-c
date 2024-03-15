@@ -1,1 +1,1 @@
-Lista sobre Ponteiros referente a primeira unidade.
+Lista sobre Ponteiros referente à primeira unidade.
