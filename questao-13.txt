@@ -1,6 +1,9 @@
 ** ESTE ARQUIVO NÃO DEVE SER COMPILADO ** 
 
-// Memory Leak, em português vazamento de memória, é o termo usado para caracterizar erros no gerenciamento de memória em programas na    // linguagem C. Nessa linguagem, não há gerenciamento automático de memória, como o 'Garbage Collector' presente na linguagem Java,      // ficando a cargo do programador liberar os dados os quais não são mais necessários. Na biblioteca padrão C, há algumas funções para essa       // finalidade, sendo a mais comum 'malloc', usada em conjunto com 'free'.
+// Memory Leak, em português vazamento de memória, é o termo usado para caracterizar erros no gerenciamento de memória em programas na    
+// linguagem C. Nessa linguagem, não há gerenciamento automático de memória, como o 'Garbage Collector' presente na linguagem Java,     
+// ficando a cargo do programador liberar os dados os quais não são mais necessários. Na biblioteca padrão C, há algumas funções para essa       
+// finalidade, sendo a mais comum 'malloc', usada em conjunto com 'free'.
 
 // Primeiro Programa com memory leak
 
@@ -32,7 +35,9 @@ int main() {
     printf("%s", to_italic("Memory leak"));
 }
 
-// Nesse programa, a função *to_italic reserva um espaço de memória usando a função malloc. No entanto, como o retorno da função não foi   // atribuido ao uma variável, não é possível usar a função free para liberar a memória, pois não um ponteiro para o espaço o qual foi      // reservado para a função.
+// Nesse programa, a função *to_italic reserva um espaço de memória usando a função malloc. No entanto, como o retorno da função não foi   
+// atribuido ao uma variável, não é possível usar a função free para liberar a memória, pois não um ponteiro para o espaço o qual foi      
+// reservado para a função.
 
 // Terceiro programa
 
