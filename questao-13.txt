@@ -1,0 +1,62 @@
+** ESTE ARQUIVO NÃO DEVE SER COMPILADO ** 
+
+// Memory Leak, em português vazamento de memória, é o termo usado para caracterizar erros no gerenciamento de memória em programas na    // linguagem C. Nessa linguagem, não há gerenciamento automático de memória, como o 'Garbage Collector' presente na linguagem Java,      // ficando a cargo do programador liberar os dados os quais não são mais necessários. Na biblioteca padrão C, há algumas funções para essa       // finalidade, sendo a mais comum 'malloc', usada em conjunto com 'free'.
+
+// Primeiro Programa com memory leak
+
+#include <stdlib.h>
+
+int main() {
+    int *ptr = (int*)malloc(10 * sizeof(int)); // Alocação de memória
+    return 0;
+}
+
+// Nesse programa, a memória foi alocada usando 'malloc', porém não foi liberada usando 'free'.
+
+
+// Segundo programa:
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char *to_italic(char *s) {
+    size_t len = strlen(s);
+    char *result = malloc(len + 5); // assume que malloc não falhará
+    sprintf(result, "**%s**", s);
+    return result;
+}
+
+int main() {
+    printf("%s", to_italic("Hello, there!"));
+    printf("%s", to_italic("Memory leak"));
+}
+
+// Nesse programa, a função *to_italic reserva um espaço de memória usando a função malloc. No entanto, como o retorno da função não foi   // atribuido ao uma variável, não é possível usar a função free para liberar a memória, pois não um ponteiro para o espaço o qual foi      // reservado para a função.
+
+// Terceiro programa
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int sum(int x, int y){
+    int *result = malloc(1 * sizeof(int));
+    
+    *result = x + y;
+    return *result;
+}
+
+
+int main(){
+    int x;
+    
+    scanf("%d", &x);
+    printf("%d + 5 = %d\n", x, sum(x, 5));
+    
+    return 0;
+}
+
+
+// Nesse programa, a função sum reserva um espaço de memória, mas o espaço não é liberado usando free.
+
+
