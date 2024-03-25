@@ -12,13 +12,12 @@ void multiplica_matrizes(int ** matriz_1, int ** matriz_2, int ** matriz_c, int 
         + 
         matriz_1[aux_c_1][aux_1 + 1] * matriz_2[aux_2+1][aux_l_2]
         + 
-        matriz_1[aux_c_1][aux_1 + 2] * matriz_2[aux_2 + 2]      [aux_l_2];
+        matriz_1[aux_c_1][aux_1 + 2] * matriz_2[aux_2 + 2][aux_l_2];
+        aux_l_2++;
     }
-    printf("aux_c_1 => %d\n",aux_c_1);
-    printf("aux_l_2 => %d\n",aux_l_2);
-    
+
     aux_c_1++;
-    aux_l_2++;
+    aux_l_2 = 0;
 
     aux_1 = 0;
     aux_2 = 0;
@@ -48,6 +47,7 @@ int main(void) {
     }
   }
 
+  printf("Matriz 1:\n");
   for(i = 0; i < nl_1; i++){
     for (int c = 0; c < nc_1; c++){
       printf("%d ", matriz_1[i][c]);
@@ -71,6 +71,7 @@ int main(void) {
     }
   }
 
+  printf("Matriz 2:\n");
   for(i = 0; i < nl_2; i++){
     for (int c = 0; c < nc_2; c++){
       printf("%d ", matriz_2[i][c]);
@@ -87,6 +88,7 @@ int main(void) {
     matriz_c[i] = malloc(nc_c * sizeof(int));
   }
 
+  printf("Matriz C sem preenchimento:\n");
   for(i = 0; i < nl_c; i++){
     for (int c = 0; c < nc_c; c++){
       printf("%d ", matriz_c[i][c]);
@@ -100,6 +102,7 @@ int main(void) {
   multiplica_matrizes(matriz_1, matriz_2, matriz_c, nl_1, 
     nc_1, nc_2);
 
+  printf("Matriz C (M1 X M2):\n");
   for(i = 0; i < nl_c; i++){
     for (int c = 0; c < nc_c; c++){
       printf("%d ", matriz_c[i][c]);
@@ -114,5 +117,8 @@ int main(void) {
   }
   for(i = 0; i < nl_1; i++){
     free(matriz_1[i]);
+  }
+  for(i = 0; i < nl_1; i++){
+    free(matriz_c[i]);
   }
 }
