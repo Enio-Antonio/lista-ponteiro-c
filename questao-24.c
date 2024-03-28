@@ -19,6 +19,7 @@ int main() {
             }
         }
     }
+    printf("Matriz inicial:\n");
     for(int i = 0;i<n;i++){
         for(int j = 0; j<n;j++){
             printf("%d ",m[i][j]);
@@ -30,6 +31,20 @@ int main() {
             estado = estado << 1; //O valor de estado é deslocado em um para a esquerda e o valor atualizado é atribuido a variavel original.
             estado = estado | m[i][j]; // Ocorre uma comparação entre o valor do bit presente na variavel estado com o valor da matriz na linha e coluna da iteração, como estado está apenas com zeros, o valor do bit será atualizado e dependerá apenas do valor contido na matriz.
         }
+    }
+    //Operação Inversa
+    for (int i = n - 1; i >= 0; i--) {
+        for (int j = n - 1; j >= 0; j--) {
+            m[i][j] = estado & 1; // caso o valor em "estado" seja 1, o valor naquela posição será 1. Senão, será 0. Operação "AND"
+            estado = estado >> 1; //desloca os bits de estado para a direta em uma posição.
+        }
+    }
+    printf("Matriz atualizada:\n");
+    for(int i = 0;i<n;i++){
+        for(int j = 0; j<n;j++){
+            printf("%d ",m[i][j]);
+        }
+        printf("\n");
     }
     free(m[0]);
     free(m);
