@@ -3,7 +3,7 @@
 int main() {
     char **m;
     char **p;
-    long estado = 0;
+    unsigned long estado = 0;
     int n = 8;
     m = malloc(n*sizeof(char*));
     m[0]=malloc(n*n*sizeof(char));
