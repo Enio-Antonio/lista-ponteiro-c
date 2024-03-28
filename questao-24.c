@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 int main() {
     char **m;
     long estado = 0;
