@@ -34,7 +34,7 @@ int main(){
   printf("\n");
 
   void (*ordenar_decrescente)(int *, int, int*, (int*, int*));
-  //void (*ptr_zerar)(int*);
+ 
   ordenar_decrescente = qsort;
 
   ordenar_decrescente(vetor, n, sizeof(int), compara);
